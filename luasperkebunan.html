@@ -30,7 +30,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <i class="fa-solid fa-table-list"></i>  Data
+                            <i class="fa-solid fa-table-list"></i> Data
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="luaskecamatan.html">Luas Kecamatan</a></li>
@@ -40,7 +40,6 @@
                             <li><a class="dropdown-item" href="luasperkebunan.html">Luas Perkebunan</a></li>
                             <li><a class="dropdown-item" href="produksiperkebunan.html">Jumlah Produksi Kopi dan Kakao</a></li>
                             
-            
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -58,7 +57,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Desa Per-Kecamatan</h5>
+                <h5>Luas Perkebunan</h5>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -98,34 +97,41 @@
 
     <script>
 
-       
-
-        var options = {
-          series: [{
-            name: 'Jumlah Desa',
-          data: [10, 10, 11, 15, 12, 15, 16, 12, 18, 14]
-        }],
+var options = {
+    name: 'Luas',
+          series: [14868, 59585.37, 4533,],
           chart: {
-          type: 'bar',
-          height: 350
+          width: 500,
+          type: 'donut',
         },
         plotOptions: {
-          bar: {
-            borderRadius: 4,
-            horizontal: true,
+          pie: {
+            startAngle: -90,
+            endAngle: 270
           }
         },
-        dataLabels: {
-          enabled: false
+        
+        fill: {
+          type: 'gradient',
         },
-      
-        
-        xaxis: {
-          categories: ["Selemadeg", "Selemadeg Timur", "Selemadeg Barat", " Kerambitan", "Tabanan", "Kediri", "Marga", "Baturiti", "Penebel", "Pupuan"
-          ],
-        }
-        
+        labels: ['Kelapa', 'Kokoa', 'Kopi'],
+        title: {
+          text: 'Rasio Luas Perkebunan (ha)'
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
         };
+
+
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render()</script>
 </body>

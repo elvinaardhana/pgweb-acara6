@@ -30,7 +30,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <i class="fa-solid fa-table-list"></i>  Data
+                            <i class="fa-solid fa-table-list"></i> Data
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="luaskecamatan.html">Luas Kecamatan</a></li>
@@ -40,7 +40,6 @@
                             <li><a class="dropdown-item" href="luasperkebunan.html">Luas Perkebunan</a></li>
                             <li><a class="dropdown-item" href="produksiperkebunan.html">Jumlah Produksi Kopi dan Kakao</a></li>
                             
-            
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -58,7 +57,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Desa Per-Kecamatan</h5>
+                <h5>Jumlah Penduduk</h5>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -98,34 +97,36 @@
 
     <script>
 
-       
-
-        var options = {
+var options = {
           series: [{
-            name: 'Jumlah Desa',
-          data: [10, 10, 11, 15, 12, 15, 16, 12, 18, 14]
+          name: 'Jumlah Penduduk',
+          data: [441.000, 443.500, 445.700, 461.630, 465.330]
+        }, {
+          name: 'Indeks Pembangunan Manusia',
+          data: [74.86, 75.45, 76.16, 76.17, 76.45]
         }],
           chart: {
-          type: 'bar',
-          height: 350
-        },
-        plotOptions: {
-          bar: {
-            borderRadius: 4,
-            horizontal: true,
-          }
+          height: 350,
+          type: 'area'
         },
         dataLabels: {
           enabled: false
         },
-      
-        
+        stroke: {
+          curve: 'smooth'
+        },
         xaxis: {
-          categories: ["Selemadeg", "Selemadeg Timur", "Selemadeg Barat", " Kerambitan", "Tabanan", "Kediri", "Marga", "Baturiti", "Penebel", "Pupuan"
-          ],
-        }
-        
+          
+          categories: ["Tahun 2017", "Tahun 2018", "Tahun 2019", "Tahun 2020", "Tahun 2021"]
+        },
+        tooltip: {
+          x: {
+            format: '/yy'
+          },
+        },
         };
+
+
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render()</script>
 </body>

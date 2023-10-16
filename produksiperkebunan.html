@@ -40,7 +40,6 @@
                             <li><a class="dropdown-item" href="luasperkebunan.html">Luas Perkebunan</a></li>
                             <li><a class="dropdown-item" href="produksiperkebunan.html">Jumlah Produksi Kopi dan Kakao</a></li>
                             
-            
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -58,7 +57,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Desa Per-Kecamatan</h5>
+                <h5>Jumlah Produksi Kopi dan Kakao (ton)</h5>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -98,34 +97,53 @@
 
     <script>
 
-       
 
-        var options = {
+
+var options = {
           series: [{
-            name: 'Jumlah Desa',
-          data: [10, 10, 11, 15, 12, 15, 16, 12, 18, 14]
+            name :'Jumlah Produksi Kopi',
+          data: [70.34, 2.90, 511.34, 11.34, 0, 1, 5.70, 2.68, 30.16, 4891.34]
+        }, {
+            name: 'Jumlah Produksi Kakao',
+          data: [164.90, 70.06, 269.90, 18.91, 3.40, 0.72, 46.52, 1.70, 67.90, 277.62]
         }],
           chart: {
           type: 'bar',
-          height: 350
+          
+          height: 400
         },
         plotOptions: {
           bar: {
             borderRadius: 4,
             horizontal: true,
+            dataLabels: {
+              position: 'top',
+            },
           }
         },
         dataLabels: {
-          enabled: false
+          enabled: true,
+          offsetX: -6,
+          style: {
+            fontSize: '12px',
+            colors: ['#fff']
+          }
         },
-      
-        
+        stroke: {
+          show: true,
+          width: 1,
+          colors: ['#fff']
+        },
+        tooltip: {
+          shared: true,
+          intersect: false
+        },
         xaxis: {
-          categories: ["Selemadeg", "Selemadeg Timur", "Selemadeg Barat", " Kerambitan", "Tabanan", "Kediri", "Marga", "Baturiti", "Penebel", "Pupuan"
-          ],
-        }
-        
+    
+          categories: ["Selemadeg", "Selemadeg Timur", "Selemadeg Barat", " Kerambitan", "Tabanan", "Kediri", "Marga", "Baturiti", "Penebel", "Pupuan"],
+        },
         };
+
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render()</script>
 </body>
